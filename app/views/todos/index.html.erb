@@ -1,2 +1,8 @@
 <h1>Tah-dah!</h1>
 <p>Quer dizer... to-do!</p>
+
+<ul>
+	<% @todos.each do |todo| %>
+		<li> <%= todo.name %></li>
+	<% end %>
+</ul>
