@@ -10,9 +10,9 @@
 	<div class="todo__list">
 		<% @todos.each do |todo| %>
 			<div class="item">
-				<div class="item__completed"> check </div>
+				<div class="item__completed"> <i class="fa fa-check"></i> </div>
 				<div class="item__name"><%= todo.name %></div>
-				<div class="item__delete"> delete </div>
+				<div class="item__delete"> <i class="fa fa-trash-o"></i> </div>
 			</div>
 		<% end %>
 	</div>
