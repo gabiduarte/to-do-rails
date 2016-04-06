@@ -1,12 +1,19 @@
-<h1>Tah-dah!</h1>
+<main class="todo">
 
-<%= form_for @todo, html: {class: "form"} do |f| %>
-<%= f.text_field :name %>
-<%= f.submit %>
-<% end %>
+	<h1 class="todo__title">To-do!</h1>
 
-<ul>
-	<% @todos.each do |todo| %>
-		<li> <%= link_to todo.name, todo %></li>
+	<%= form_for @todo, html: {class: "form"} do |f| %>
+		<%= f.text_field :name, class: "form__input" %>
+		<%= f.submit class: "form__submit" %>
 	<% end %>
-</ul>
+
+	<div class="todo__list">
+		<% @todos.each do |todo| %>
+			<div class="item">
+				<div class="item__completed"> check </div>
+				<div class="item__name"><%= todo.name %></div>
+				<div class="item__delete"> delete </div>
+			</div>
+		<% end %>
+	</div>
+</main>

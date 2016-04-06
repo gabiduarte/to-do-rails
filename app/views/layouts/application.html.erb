@@ -9,9 +9,9 @@
 <body>
 
 	<% flash.each do |key, value| %>
-		<div class="flash flash__<%= key %>">
+		<div class="flash flash--<%= key %>">
 			<%= value %>
-			<span class="flash__close">&#8855;</span>
+			<span class="flash__close">&#10799;</span>
 		</div>
 	<% end %>
 
