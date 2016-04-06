@@ -1,5 +1,9 @@
 <h1>Tah-dah!</h1>
-<p>Quer dizer... to-do!</p>
+
+<%= form_for @todo, html: {class: "form"} do |f| %>
+<%= f.text_field :name %>
+<%= f.submit %>
+<% end %>
 
 <ul>
 	<% @todos.each do |todo| %>
