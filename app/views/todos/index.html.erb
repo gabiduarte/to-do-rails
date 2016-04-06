@@ -3,8 +3,8 @@
 	<h1 class="todo__title">To-do!</h1>
 
 	<%= form_for @todo, html: {class: "form"} do |f| %>
-		<%= f.text_field :name, class: "form__input" %>
-		<%= f.submit class: "form__submit" %>
+		<%= f.text_field :name, class: "form__input", placeholder: "Press enter to add" %>
+<!-- 		<%= f.submit class: "form__submit" %> -->
 	<% end %>
 
 	<div class="todo__list">
