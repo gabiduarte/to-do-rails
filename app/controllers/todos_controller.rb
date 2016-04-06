@@ -23,7 +23,7 @@ class TodosController < ApplicationController
       redirect_to(todos_path)
     else
       flash[:error] = "Nay :("
-      render :new
+      render :index
     end
   end
 
