@@ -11,15 +11,16 @@ $light-blue: #4F5C74;
 
 
 %list-items {
-	border: 1px solid $light-blue;
 	display: inline-block;
 	font-size: 18px;
-	padding: 10px 0;
+	padding: 10px;
+	vertical-align: middle;
 }
 
 body {
 	background: linear-gradient(to left, $dark-blue, $light-blue );
 	font-family: 'Roboto', sans-serif;
+	-webkit-font-smoothing: antialiased !important;
 }
 
 .todo {
@@ -60,19 +61,26 @@ body {
 }
 
 .item {
+	border: 1px solid $light-blue;
 	font-size: 0;
 	font-weight: 300;
 	margin: 20px 0;
+
 
 	&__completed, &__delete {
 		@extend %list-items;
 		width: 6.9%;
 	}
 
+	&__delete a {
+		color: $dark-blue;
+	}
+
 	&__name {
 		@extend %list-items;
-		border-width: 1px 0;
-		width: 85%;
+		border: 1px solid $dark-blue;
+		border-width: 0 1px;
+		width: 74%;
 	}
 
 }

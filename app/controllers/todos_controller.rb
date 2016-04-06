@@ -2,10 +2,8 @@ class TodosController < ApplicationController
 	
 	def index
 		@todos = Todo.all
-
     @todo = Todo.new
 
-		# serves as todos.json as well
 		respond_to do |format|
 			format.html
 			format.json { render json: @todos }
@@ -15,26 +13,24 @@ class TodosController < ApplicationController
 	def show
 		@todo = Todo.find(params[:id])
 
-		# respond_to do |format|
-		# 	format.html
-		# 	format.json { render json: @todo }
-		# end
 	end
-
-  def new
-    @todo = Todo.new
-  end
 
   def create
     @todo = Todo.new(todo_params)
 
     if @todo.save
-      flash[:notice] = "Todo salvo"
+      flash[:notice] = "Yay!"
       redirect_to(todos_path)
     else
-      flash[:notice] = "Houve um erro"
+      flash[:error] = "Nay :("
       render :new
     end
+  end
+
+  def destroy
+    @todo = Todo.find(params[:id])
+    @todo.destroy
+    redirect_to(todos_path)
   end
 
 
