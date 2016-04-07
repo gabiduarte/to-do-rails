@@ -1,6 +1,7 @@
 class TodosController < ApplicationController
+	before_action :find_todo, only: [:show, :destroy, :update, :toggle_completed]
 	
-	def index
+  def index
 		@todos = Todo.all
     @todo = Todo.new
 
@@ -10,26 +11,26 @@ class TodosController < ApplicationController
 		end
 	end
 
-	def show
-		@todo = Todo.find(params[:id])
-
-	end
-
   def create
     @todo = Todo.new(todo_params)
+    @todo[:completed] ||= false
 
     if @todo.save
       flash[:notice] = "Yay!"
-      redirect_to(todos_path)
     else
       flash[:error] = "Nay :("
-      render :index
     end
+
+    redirect_to(todos_path)
   end
 
   def destroy
-    @todo = Todo.find(params[:id])
     @todo.destroy
+    redirect_to(todos_path)
+  end
+
+  def toggle_completed
+    @todo.toggle!(:completed)
     redirect_to(todos_path)
   end
 
@@ -40,5 +41,7 @@ class TodosController < ApplicationController
     params.require(:todo).permit(:name, :completed)
   end
 
-
+  def find_todo
+    @todo = Todo.find(params[:id])
+  end
 end

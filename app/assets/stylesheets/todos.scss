@@ -18,9 +18,9 @@ $light-blue: #4F5C74;
 }
 
 body {
-	background: linear-gradient(to left, $dark-blue, $light-blue );
+	background: linear-gradient(to left, $dark-blue, $light-blue);
 	font-family: 'Roboto', sans-serif;
-	-webkit-font-smoothing: antialiased !important;
+	-webkit-font-smoothing: antialiased;
 }
 
 .todo {
@@ -66,14 +66,22 @@ body {
 	font-weight: 300;
 	margin: 20px 0;
 
-
-	&__completed, &__delete {
+	&__check, &__delete {
 		@extend %list-items;
 		width: 6.9%;
 	}
 
-	&__delete a {
+	&__delete a, &__check a {
 		color: $dark-blue;
+		transition: all .2s ease-out;
+	}
+
+	&__check--true a, &__check a:hover  {
+		color: #80C851;
+	}
+
+	&__check--true a:hover {
+		color: #CD4239;
 	}
 
 	&__name {
@@ -81,7 +89,10 @@ body {
 		border: 1px solid $dark-blue;
 		border-width: 0 1px;
 		width: 74%;
+
+		&--true {
+			text-decoration: line-through;
+			color: #999;
+		}
 	}
-
 }
-
