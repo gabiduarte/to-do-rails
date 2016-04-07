@@ -11,8 +11,10 @@
 		<% @todos.each do |todo| %>
 
 			<div class="item">
-				<div class="item__check item__check--<%= todo.completed %>"> <%= link_to '<i class="fa fa-check"></i>'.html_safe, toggle_completed_path(todo) %> </div>
-				<div class="item__name item__name--<%= todo.completed %>"><%= todo.name %></div>
+				<div class="item__check item__check--<%= todo.completed %>"><%= link_to '<i class="fa fa-check"></i>'.html_safe, toggle_completed_path(todo) %></div>
+				<div class="item__name item__name--<%= todo.completed %>"><%= todo.name %>
+					<span class="item__edit"><%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_todo_path(todo) %></span>
+				</div>
 				<div class="item__delete"><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, todo, method: :delete %></div>
 			</div>
 		<% end %>

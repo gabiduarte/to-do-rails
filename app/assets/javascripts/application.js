@@ -14,3 +14,12 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).on('ready page:load', function() {
+	$('.item__name--false').hover(function() {
+			$(this).children().show();
+		},
+		function() {
+			$(this).children().hide();
+		});
+});

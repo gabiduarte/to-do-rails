@@ -39,6 +39,15 @@ body {
 		margin: 10% auto 5%;
 		width: 90%;
 	}
+
+	&__back {
+		display: block;
+		margin: 50px auto 10px;
+	}
+
+	& a {
+		color: $dark-blue;
+	}
 }
 
 .form__input {
@@ -86,13 +95,32 @@ body {
 
 	&__name {
 		@extend %list-items;
+		background-color: #FFF;
 		border: 1px solid $dark-blue;
 		border-width: 0 1px;
+		position: relative;
 		width: 74%;
+		transition: all .5s ease-out;
+
+		&--false:hover {
+			background-color: rgba(78, 91, 113, 0.3);
+		}
 
 		&--true {
 			text-decoration: line-through;
 			color: #999;
 		}
+	}
+
+	&__edit {
+		display: none;
+    position: absolute;
+    top: 25%;
+    left: 0;
+    right: 0;
+
+    & a {
+    	color: $dark-blue;
+    }
 	}
 }

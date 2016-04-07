@@ -1,0 +1,11 @@
+<main class="todo">
+
+	<h1 class="todo__title">Edit Todo</h1>
+	
+	<%= form_for @todo, html: {class: "form"} do |f| %>
+		<%= f.text_field :name, class: "form__input", placeholder: "Press enter to edit" %>
+	<% end %>
+
+	<span class="todo__back"><%= link_to 'Go Back', todos_path %></span>
+
+</main>

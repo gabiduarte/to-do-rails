@@ -1,5 +1,5 @@
 class TodosController < ApplicationController
-	before_action :find_todo, only: [:show, :destroy, :update, :toggle_completed]
+	before_action :find_todo, only: [:show, :edit, :destroy, :update, :toggle_completed]
 	
   def index
 		@todos = Todo.all
@@ -21,6 +21,15 @@ class TodosController < ApplicationController
       flash[:error] = "Nay :("
     end
 
+    redirect_to(todos_path)
+  end
+
+  def update
+    if @todo.update(todo_params)
+      flash[:notice] = "Updated to-do :)"
+    else
+      flash[:error] = "Something went wrong"
+    end
     redirect_to(todos_path)
   end
 
